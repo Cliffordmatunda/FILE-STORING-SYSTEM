@@ -52,4 +52,8 @@ export const loginUser = async (req, res) => {
     res.status(501), json({ message: "internal server error" });
   }
 };
+
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+};
 export default register;
